@@ -17,10 +17,7 @@ const __dirname = path.resolve();
 
 app.use(
   cors({
-    // origin: "http://localhost:5173",
-    // credentials: true, // allow frontend to send cookies
-    origin: "https://streamify-chat-app-9y94-a7m0ux6iv.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
