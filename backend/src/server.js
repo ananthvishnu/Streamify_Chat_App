@@ -17,8 +17,11 @@ const __dirname = path.resolve();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
-    credentials: true, // allow frontend to send cookies
+    // origin: "http://localhost:5173",
+    // credentials: true, // allow frontend to send cookies
+    origin: "https://streamify-chat-app-9y94-a7m0ux6iv.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
   })
 );
 
@@ -32,7 +35,7 @@ app.use("/api/chat", chatRoutes);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  app.get('/{*any}', (req, res) => {
+  app.get("/{*any}", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   });
 }
